@@ -1,0 +1,26 @@
+
+server:
+  error:
+    include-stacktrace: never
+    include-message: always
+
+spring:
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/demo
+    username: demo
+    password: demo
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: mysql
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+
+app:
+  max-new-tasks: 20
