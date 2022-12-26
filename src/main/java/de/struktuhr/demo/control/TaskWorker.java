@@ -24,6 +24,7 @@ public class TaskWorker {
 
     @Async
     public void doWorkAsync(Long id) {
+        // simulate some work
         sleep();
         try {
             taskService.finish(id);
@@ -41,7 +42,7 @@ public class TaskWorker {
             Thread.sleep(seconds * 1000);
         }
         catch(InterruptedException e) {
-            logger.warn("Interrupted ", e.getMessage());
+            logger.warn("Interrupted {}", e.getMessage());
         }
     }
 }

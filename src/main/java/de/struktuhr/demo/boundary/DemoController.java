@@ -23,8 +23,9 @@ public class DemoController {
 
     @PostMapping("/new-tasks")
     public void createNewTasks(@RequestBody NewTaskDto newTaskDto) {
+        final String nameTemplate = newTaskDto.nameTemplate != null ? newTaskDto.nameTemplate : "Demo";
         for(int i = 0; i < newTaskDto.count; i++) {
-            taskService.createTask(TaskDto.forName(newTaskDto.nameTemplate + " " + i + " " + LocalDateTime.now()));
+            taskService.createTask(TaskDto.forName(nameTemplate + " " + i + " " + LocalDateTime.now()));
         }
     }
 }

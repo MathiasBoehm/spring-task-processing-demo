@@ -14,7 +14,7 @@ public class BackgroundRunner {
         this.newTasksProcessor = newTasksProcessor;
     }
 
-    @Scheduled(fixedDelay = 500, initialDelay = 1000, timeUnit = TimeUnit.MILLISECONDS)
+    @Scheduled(fixedDelay = 500, initialDelay = 1000)
     void processNewTasks() {
         newTasksProcessor.processNewTasks();
     }
