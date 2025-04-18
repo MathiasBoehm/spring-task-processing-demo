@@ -48,17 +48,16 @@ public class TaskService {
 
     @Transactional
     public TaskDto claim(Long id, String owner) {
-        TaskDto claimedTaskDto = null;
-        final List<Task> claimableTasks = taskRepo.findByIdAndStatusAndOwner(id, TaskStatus.NEW, null);
-        if (claimableTasks.size() == 1) {
-            final Task task = claimableTasks.get(0);
+        final var task = taskRepo.getAndLockById(id);
+        if (TaskStatus.NEW.equals(task.getStatus()) && task.getOwner() == null) {
             task.setClaimed(new Date());
             task.setStatus(TaskStatus.CLAIMED);
             task.setOwner(owner);
-            final Task claimedTask = taskRepo.save(task);
-            claimedTaskDto = convert(claimedTask);
+            final var claimedTask = taskRepo.save(task);
+            final var claimedTaskDto = convert(claimedTask);
+            return claimedTaskDto;
         }
-        return claimedTaskDto;
+        return null;
     }
 
     @Transactional
