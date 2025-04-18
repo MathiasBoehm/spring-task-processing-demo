@@ -6,20 +6,23 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mariadb://127.0.0.1:3306/demo
+    url: jdbc:postgresql://127.0.0.1:5432/postgres
     username: demo
     password: demo
-    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: none
-    database: mysql
+    database: postgresql
     open-in-view: false
     show-sql: false
     properties:
       hibernate:
         format_sql: true
+        #jdbc:
+        #  lob:
+        #    non_contextual_creation: true
 
 
 app:
