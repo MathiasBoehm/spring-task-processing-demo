@@ -38,7 +38,7 @@ curl -X POST -H "Content-Type: application/json" -d @etc\data.json  http://local
 ```shell
 $ docker pull postgres
 
-$ docker run -itd -e POSTGRES_USER=demo -e POSTGRES_PASSWORD=demo -p 5432:5432 -v ./data:/var/lib/postgresql/data --name postgresql postgres
+$ docker run -it -e POSTGRES_USER=demo -e POSTGRES_PASSWORD=demo -p 5432:5432 -v ./data:/var/lib/postgresql/data --name postgresql postgres
 
 $ docker stop postgres
 ```

@@ -1,0 +1,7 @@
+### Create some Tasks
+POST {{app}}/new-tasks
+Content-Type: application/json
+
+{
+  "count": 100
+}

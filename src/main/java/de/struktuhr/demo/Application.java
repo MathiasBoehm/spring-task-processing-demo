@@ -13,12 +13,12 @@ import java.util.UUID;
 @EnableAsync
 @EnableScheduling
 @SpringBootApplication
-public class SpringBoot3DemoApplication {
+public class Application {
 
-	private final static Logger logger = LoggerFactory.getLogger(SpringBoot3DemoApplication.class);
+	private final static Logger logger = LoggerFactory.getLogger(Application.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBoot3DemoApplication.class, args);
+	static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Bean
